@@ -1,5 +1,5 @@
 <template>
-  <div class="Container">
+  <div class="container">
     <div class="table-responsive col-md-10 bg-custom">
       <h2 class="text-info">
         Account
@@ -16,6 +16,7 @@
             <th>Name</th>
             <th>Industry</th>
             <th>Action</th>
+            <th> </th>
           </tr>
         </thead>
         <tbody>
@@ -80,5 +81,18 @@ export default {
 </script>
 
 <style scoped>
+  .table-striped>tbody>tr:nth-child(odd)>td,
+  .table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: lavender;
+  }
 
+  .table-striped>tbody>tr:nth-child(even)>td,
+  .table-striped>tbody>tr:nth-child(even)>th {
+    background-color: mistyrose;
+  }
+
+  .table-striped>tbody>tr:hover>td,
+  .table-striped>tbody>tr:hover>th {
+    background-color: darksalmon;
+  }
 </style>
