@@ -17,6 +17,7 @@
             <th>Account</th>
             <th>Ship Date</th>
             <th>Stage</th>
+            <th>&nbsp;</th>
             <th>Action</th>
             <th>&nbsp;</th>
           </tr>

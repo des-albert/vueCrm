@@ -17,6 +17,12 @@
         class="collapse navbar-collapse"
       >
         <ul class="navbar-nav mr-auto">
+          <li>
+            <img
+              src="./assets/Toocan Icon.png"
+              alt=""
+            >
+          </li>
           <li class="nav-item">
             <router-link
               :to="{name: 'AccountIndex'}"

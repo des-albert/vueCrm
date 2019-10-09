@@ -15,6 +15,7 @@
           <tr>
             <th>Name</th>
             <th>Industry</th>
+            <th>&nbsp;</th>
             <th>Action</th>
             <th>&nbsp;</th>
           </tr>
