@@ -25,6 +25,18 @@ opportunityRoutes.route('/').get((req, res) => {
   });
 });
 
+opportunityRoutes.route('/:Name').get((req, res) => {
+
+  let search_key = req.params.Name;
+  Opportunity.find( {'Account': search_key}, (err, opportunities) => {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(opportunities);
+    }
+  });
+});
+
 opportunityRoutes.route('/edit/:id').get((req, res) => {
   Opportunity.findById(req.params.id, (err, opportunity) => {
     if(err){

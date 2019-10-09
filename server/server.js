@@ -8,6 +8,10 @@ const serveStatic = require('serve-static');
 const opportunityRoute = require('./routes/opportunity.route');
 const accountRoute = require('./routes/account.route');
 const stageRoute = require('./routes/stage.route');
+const quoteRoute = require('./routes/quote.route');
+const quoteStateRoute = require('./routes/quoteState.route');
+
+
 
 const app = express();
 
@@ -24,8 +28,11 @@ app.use(bodyParser.json());
 app.use('/opportunities', opportunityRoute);
 app.use('/accounts', accountRoute);
 app.use('/stages', stageRoute);
+app.use('/quotes', quoteRoute);
+app.use('/quoteStates', quoteStateRoute);
 
 app.use(serveStatic(__dirname + '/dist'));
+
 
 const PORT = 4000;
 const port = process.env.PORT || PORT;

@@ -100,7 +100,7 @@ export default {
       }
       this.axios.post(uri, this.opportunity)
         .then(() => {
-          this.$router.push({name: 'OppIndex'});
+          this.$router.push({name: 'OpportunityIndex'});
         })
         .catch((error) => {
           console.log(error);

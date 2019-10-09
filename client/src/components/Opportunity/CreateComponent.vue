@@ -121,7 +121,7 @@ export default {
       this.opportunity.ShipDate = new Date(this.opportunity.ShipDate).setHours(5, 0, 0, 0);
       this.axios.post(uri, this.opportunity)
         .then(() => {
-          this.$router.push({name: 'OppIndex'});
+          this.$router.push({name: 'OpportunityIndex'});
         });
     }
   }

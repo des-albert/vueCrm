@@ -2,9 +2,9 @@
   <div class="container">
     <div class="table-responsive col-md-10 bg-custom">
       <h2 class="text-info">
-        Account
+        Opportunities
         <router-link
-          :to="{name: 'AccountCreate'}"
+          :to="{name: 'OpportunityCreate'}"
           class="btn btn-primary"
         >
           New
@@ -14,21 +14,25 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Industry</th>
+            <th>Account</th>
+            <th>Ship Date</th>
+            <th>Stage</th>
             <th>Action</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
           <tr
-            v-for="account in accounts"
-            :key="account._id"
+            v-for="opportunity in opportunities"
+            :key="opportunity._id"
           >
-            <td>{{ account.Name }}</td>
-            <td>{{ account.Industry }}</td>
+            <td>{{ opportunity.Name }}</td>
+            <td>{{ opportunity.Account }}</td>
+            <td>{{ opportunity.ShipDate | moment }} </td>
+            <td>{{ opportunity.Stage }}</td>
             <td>
               <router-link
-                :to="{name: 'OpportunityList', params: { Name: account.Name }}"
+                :to="{name: 'QuoteList', params: { Name: opportunity.Name }}"
                 class="btn btn-info"
               >
                 List
@@ -36,7 +40,7 @@
             </td>
             <td>
               <router-link
-                :to="{name: 'AccountEdit', params: { id: account._id }}"
+                :to="{name: 'OpportunityEdit', params: { id: opportunity._id }}"
                 class="btn btn-success"
               >
                 Edit
@@ -45,7 +49,7 @@
             <td>
               <button
                 class="btn btn-warning"
-                @click.prevent="deleteAccount(account._id)"
+                @click.prevent="deleteOpportunity(opportunity._id)"
               >
                 Delete
               </button>
@@ -58,33 +62,40 @@
 </template>
 
 <script>
+import moment from 'moment';
 export default {
+  filters: {
+    moment: (date) => {
+      return moment(date).format('MMM-DD-YYYY');
+    }
+  },
   data() {
     return {
-      accounts: []
+      opportunities: []
     };
   },
   created() {
-    let uri = '/accounts';
+    let uri = `/opportunities/${this.$route.params.Name}`;
     if (process.env.NODE_ENV !== 'production') {
-      uri = 'http://localhost:4000/accounts';
+      uri = `http://localhost:4000/opportunities/${this.$route.params.Name}`;
     }
     this.axios.get(uri).then(response => {
-      this.accounts = response.data;
+      this.opportunities = response.data;
     });
   },
   methods: {
-    deleteAccount(id) {
-      let uri = `/accounts/delete/${id}`;
+    deleteOpportunity(id) {
+      let uri = `/opportunities/delete/${id}`;
       if (process.env.NODE_ENV !== 'production') {
-        uri = `http://localhost:4000/accounts/delete/${id}`;
+        uri = `http://localhost:4000/opportunities/delete/${id}`;
       }
       this.axios.delete(uri)
         .then(() => {
-          this.accounts.splice(this.accounts.indexOf(id), 1);
+          this.opportunities.splice(this.opportunities.indexOf(id), 1);
         });
     }
   }
+
 };
 </script>
 

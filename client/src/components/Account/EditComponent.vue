@@ -62,7 +62,7 @@ export default {
       }
       this.axios.post(uri, this.account)
         .then(() => {
-          this.$router.push({name: 'AccIndex'});
+          this.$router.push({name: 'AccountIndex'});
         })
         .catch((error) => {
           console.log(error);

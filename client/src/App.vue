@@ -10,8 +10,7 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon">
-        </span>
+        <span class="navbar-toggler-icon" />
       </button>
       <div
         id="navbarColor01"
@@ -20,7 +19,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <router-link
-              to="/accounts"
+              :to="{name: 'AccountIndex'}"
               class="nav-link"
             >
               Accounts
@@ -28,7 +27,7 @@
           </li>
           <li class="nav-item">
             <router-link
-              to="/opportunities"
+              :to="{name: 'OpportunityIndex'}"
               class="nav-link"
             >
               Opportunities
@@ -36,7 +35,16 @@
           </li>
           <li class="nav-item">
             <router-link
-              to="/about"
+              :to="{name: 'QuoteIndex'}"
+              class="nav-link"
+            >
+              Quotes
+            </router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link
+              :to="{name: 'About'}"
               class="nav-link"
             >
               About
@@ -48,8 +56,7 @@
     <transition
       name="bounce"
     >
-      <router-view>
-      </router-view>/>
+      <router-view />
     </transition>
   </div>
 </template>

@@ -4,7 +4,7 @@
       <h2 class="text-info">
         Opportunities
         <router-link
-          :to="{name: 'OppCreate'}"
+          :to="{name: 'OpportunityCreate'}"
           class="btn btn-primary"
         >
           New
@@ -18,7 +18,7 @@
             <th>Ship Date</th>
             <th>Stage</th>
             <th>Action</th>
-            <th> </th>
+            <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
@@ -32,7 +32,15 @@
             <td>{{ opportunity.Stage }}</td>
             <td>
               <router-link
-                :to="{name: 'OppEdit', params: { id: opportunity._id }}"
+                :to="{name: 'QuoteList', params: { Name: opportunity.Name }}"
+                class="btn btn-info"
+              >
+                List
+              </router-link>
+            </td>
+            <td>
+              <router-link
+                :to="{name: 'OpportunityEdit', params: { id: opportunity._id }}"
                 class="btn btn-success"
               >
                 Edit
